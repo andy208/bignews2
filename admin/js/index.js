@@ -14,4 +14,9 @@ $(function () {
             }
         }
     })
+    //给退出按钮注册事件
+    $('.logout').on('click', function () {
+        localStorage.removeItem('token')
+        window.location.href = './login.html'
+    })
 })
