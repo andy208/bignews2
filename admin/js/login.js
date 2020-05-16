@@ -4,7 +4,7 @@ $(function () {
         e.preventDefault()
         $.ajax({
             type: 'post',
-            url: 'http://localhost:8080/api/v1/admin/user/login',
+            url: BigNew.user_login,
             data: $('.login_form').serialize(),
             beforeSend: function () {
                 var flag = true
@@ -23,7 +23,10 @@ $(function () {
                 $('.modal').modal('show')
                 $('.modal-body p').text(res.msg)
                 if (res.code == 200) {
-                    window.location.href = './index.html'
+                    $('.modal').on('hidden.bs.modal', function (e) {
+                        window.location.href = './index.html'
+                    })
+
                     localStorage.setItem('token', res.token)
                 }
             }
