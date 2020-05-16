@@ -24,6 +24,7 @@ $(function () {
                 $('.modal-body p').text(res.msg)
                 if (res.code == 200) {
                     window.location.href = './index.html'
+                    localStorage.setItem('token', res.token)
                 }
             }
         })
